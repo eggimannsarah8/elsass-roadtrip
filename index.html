@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elsass im April – Roadtrip</title>
+<style>
+:root{
+  --paper:#FFFFFF;--card:#F4F4F2;--ink:#0A0A0A;--muted:#5E5E5E;--line:#E2E2E0;--bubble:#E4E4E4;
+  --lime:#D6FF4F;--on-lime:#0A0A0A;
+  --sand:#0A0A0A;--vosges:#E8E8E5;--rhine:#BDBDBD;
+  --sans:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0E0E0E;--card:#181818;--ink:#F3F3F1;--muted:#A3A3A3;--line:#2A2A2A;--bubble:#2C2C2C;
+    --sand:#F3F3F1;--vosges:#1E1E1E;--rhine:#4A4A4A;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0E0E0E;--card:#181818;--ink:#F3F3F1;--muted:#A3A3A3;--line:#2A2A2A;--bubble:#2C2C2C;
+  --sand:#F3F3F1;--vosges:#1E1E1E;--rhine:#4A4A4A;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+a{color:var(--ink);text-underline-offset:3px}
+img,svg{max-width:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+header.top{padding:24px 0 30px}
+.brand{display:flex;justify-content:flex-end}
+.wordmark{font-weight:700;font-size:19px;letter-spacing:-.05em}
+.kicker{font-size:14px;font-weight:500;margin:36px 0 10px}
+.hero-box{display:inline-block;background:var(--lime);color:var(--on-lime);border-radius:22px;padding:22px 30px 26px}
+h1{margin:0;font-weight:700;font-size:clamp(46px,11vw,88px);line-height:.95;letter-spacing:-.045em}
+.bubble-row{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin:22px 0 0}
+.bubble{display:inline-flex;gap:7px;align-items:center;background:var(--bubble);padding:13px 18px;border-radius:20px 20px 4px 20px}
+.bubble i{width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.bubble i:nth-child(2){opacity:.6}.bubble i:nth-child(3){opacity:.35}
+.bubcap{font-size:13px}
+.sub{margin:26px 0 0;font-size:clamp(20px,4.4vw,26px);font-weight:300;line-height:1.3;letter-spacing:-.01em;max-width:30ch}
+.count{display:inline-block;margin-top:20px;font-size:14px;font-weight:500;padding:6px 14px;border-radius:999px;background:var(--bubble)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;padding-top:10px;padding-bottom:10px}
+nav .wrap::-webkit-scrollbar{display:none}
+nav a{flex:none;text-decoration:none;color:var(--ink);font-size:15px;font-weight:500;padding:8px 14px;border-radius:999px}
+nav a[aria-current="page"]{background:var(--lime);color:var(--on-lime)}
+nav a:focus-visible,button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+main{padding:34px 0 64px}
+h2{font-weight:700;font-size:34px;letter-spacing:-.035em;line-height:1.05;margin:0 0 10px}
+.lede{color:var(--muted);margin:0 0 26px;max-width:58ch}
+.day{display:grid;grid-template-columns:64px 1fr;gap:4px 18px;padding:24px 0;border-top:1px solid var(--line)}
+.day:last-child{border-bottom:1px solid var(--line)}
+.dnum{font-weight:700;font-size:54px;line-height:.9;letter-spacing:-.05em}
+.ddate{font-size:14px;color:var(--muted);margin:2px 0 4px}
+.dtitle{font-weight:700;font-size:22px;line-height:1.2;letter-spacing:-.02em;margin:0 0 8px}
+.dtext{margin:0 0 12px;max-width:60ch;font-weight:300;font-size:18px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.pill{font-size:13px;font-weight:500;padding:5px 12px;border-radius:999px;background:var(--lime);color:var(--on-lime)}
+.pill.km{background:var(--bubble);color:var(--ink)}
+.tip{font-size:14px;color:var(--muted);margin:10px 0 0;padding-left:12px;border-left:3px solid var(--lime);border-radius:0}
+.linkbtn{background:none;border:0;padding:0;font:inherit;font-size:14px;font-weight:500;color:var(--ink);cursor:pointer;text-decoration:underline;text-underline-offset:3px;margin-top:12px}
+.mapbox{background:var(--card);border-radius:22px;padding:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.chips button{font:inherit;font-size:14px;font-weight:500;padding:7px 14px;border-radius:999px;border:0;background:var(--bubble);color:var(--ink);cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--lime);color:var(--on-lime)}
+svg .lbl{font-family:var(--sans);font-size:12px;fill:var(--ink);font-weight:700}
+svg .geo{font-family:var(--sans);font-size:13px;fill:var(--muted);font-weight:300}
+svg .halo{stroke:var(--card);stroke-width:4px;paint-order:stroke;stroke-linejoin:round}
+svg a{cursor:pointer}
+svg a:focus-visible circle.dot{stroke:var(--lime)}
+.stoplist{margin:14px 4px 4px;padding:0;list-style:none;counter-reset:s}
+.stoplist li{counter-increment:s;padding:8px 0 8px 32px;position:relative;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px}
+.stoplist li::before{content:counter(s);position:absolute;left:0;top:10px;width:22px;height:22px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:12px;display:grid;place-items:center;font-weight:700}
+.navs{display:flex;gap:6px}
+.navs a{font-size:13px;font-weight:500;text-decoration:none;padding:6px 12px;border-radius:999px;background:var(--paper);color:var(--ink);white-space:nowrap}
+.navs a:hover{background:var(--lime);color:var(--on-lime)}
+.card{background:var(--card);border-radius:22px;padding:20px 22px;margin-bottom:14px}
+.card h3{font-weight:700;font-size:21px;letter-spacing:-.02em;margin:0 0 6px}
+.card .when{display:inline-block;font-size:13px;font-weight:500;padding:4px 11px;border-radius:999px;background:var(--lime);color:var(--on-lime)}
+.card p{margin:10px 0 0;max-width:60ch;font-weight:300}
+.addr{font-size:14px;color:var(--muted);margin-top:6px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.actions a{font-size:14px;font-weight:500;text-decoration:none;padding:7px 14px;border-radius:999px;background:var(--paper);color:var(--ink)}
+.actions a:hover{background:var(--lime);color:var(--on-lime)}
+h3.group{font-weight:700;font-size:26px;letter-spacing:-.035em;margin:34px 0 2px}
+.groupnote{color:var(--muted);font-size:14px;margin:0 0 12px}
+.alt .card{padding:16px 20px}
+.alt .card .when{background:var(--bubble);color:var(--ink)}
+.wine{padding:14px 0;border-top:1px solid var(--line)}
+.wine h4{margin:0;font-size:18px;font-weight:700;letter-spacing:-.01em}
+.wine p{margin:4px 0 0;max-width:60ch;font-weight:300}
+.wine .actions a{background:var(--bubble)}
+.form{display:grid;grid-template-columns:1fr auto;gap:12px 16px;align-items:center}
+.form label{font-size:16px;font-weight:500}
+.form .hint{display:block;font-size:13px;font-weight:400;color:var(--muted)}
+.form input[type=number]{width:100px;font:inherit;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);text-align:right}
+.form input[type=checkbox]{width:22px;height:22px;accent-color:var(--ink)}
+.total{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:22px;padding-top:16px;border-top:2px solid var(--ink)}
+.total .big{font-weight:700;font-size:54px;letter-spacing:-.05em;line-height:1}
+.status{font-size:14px;font-weight:500;padding:6px 14px;border-radius:999px}
+.status.ok{background:var(--lime);color:var(--on-lime)}
+.status.over{background:var(--ink);color:var(--paper)}
+.breakdown{margin:14px 0 0;padding:0;list-style:none;font-size:14px;color:var(--muted)}
+.breakdown li{display:flex;justify-content:space-between;padding:3px 0}
+.check{list-style:none;margin:0;padding:0}
+.check li{border-top:1px solid var(--line)}
+.check label{display:flex;gap:12px;align-items:flex-start;padding:12px 2px;cursor:pointer;font-weight:300}
+.check input{width:20px;height:20px;margin-top:2px;flex:none;accent-color:var(--ink)}
+.check input:checked + span{color:var(--muted);text-decoration:line-through}
+.progress{display:inline-block;font-size:14px;font-weight:500;margin:0 0 6px;padding:5px 12px;border-radius:999px;background:var(--lime);color:var(--on-lime)}
+.reset{font:inherit;font-size:14px;font-weight:500;margin-top:20px;padding:8px 16px;border-radius:999px;border:0;background:var(--bubble);color:var(--ink);cursor:pointer}
+footer{color:var(--muted);font-size:13px;padding:0 0 40px}
+@media (max-width:520px){.day{grid-template-columns:44px 1fr;gap:4px 12px}.dnum{font-size:40px}.form input[type=number]{width:86px}.hero-box{padding:18px 22px 22px}}
+@media (prefers-reduced-motion:no-preference){.view{animation:fade .25s ease-out}@keyframes fade{from{opacity:0}to{opacity:1}}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <div class="brand"><span class="wordmark">elsass loop</span></div>
+  <p class="kicker">Roadtrip-Plan, Kalenderwoche 14</p>
+  <div class="hero-box"><h1>Ab ins<br>Elsass!</h1></div>
+  <div class="bubble-row"><span class="bubble" aria-hidden="true"><i></i><i></i><i></i></span><span class="bubcap">6 Tage, 3 Campingplätze, rund 600 km</span></div>
+  <p class="sub">Weinstrasse und Vogesen, mit Zelt, ab Bern. 5. bis 10. April 2027, tagsüber meist 13–17 °C, nachts um 0 °C.</p>
+  <span class="count" id="count"></span>
+</div></header>
+
+<nav aria-label="Bereiche"><div class="wrap">
+  <a href="#tage">Tage</a>
+  <a href="#karte">Karte</a>
+  <a href="#camping">Camping</a>
+  <a href="#weingueter">Weingüter</a>
+  <a href="#budget">Budget</a>
+  <a href="#checkliste">Checkliste</a>
+</div></nav>
+
+<main class="wrap">
+  <section class="view" id="view-tage" aria-labelledby="h-tage">
+    <h2 id="h-tage">Die Route, Tag für Tag</h2>
+    <p class="lede">Kurze Etappen, viel zu Fuss, drei Campingplätze. Rund 600 km insgesamt, davon nichts auf Mautstrecken.</p>
+    <div id="days"></div>
+  </section>
+
+  <section class="view" id="view-karte" aria-labelledby="h-karte" hidden>
+    <h2 id="h-karte">Karte</h2>
+    <p class="lede">Schematisch, von Colmar bis Strassburg. Wähle einen Tag und tippe auf einen Ort, um die Navigation zu starten.</p>
+    <div class="chips" id="chips" role="group" aria-label="Tag wählen"></div>
+    <div class="mapbox"><div id="map"></div><ol class="stoplist" id="stoplist"></ol></div>
+  </section>
+
+  <section class="view" id="view-camping" aria-labelledby="h-camping" hidden>
+    <h2 id="h-camping">Campingplätze</h2>
+    <p class="lede">Fünf Nächte auf drei Plätzen. Kleine Plätze haben oft keine Online-Buchung: im Februar oder März anrufen oder mailen und die Öffnung bestätigen lassen.</p>
+    <div id="camps"></div>
+    <h3 class="group">Falls etwas noch zu ist</h3>
+    <p class="groupnote">Ersatzplätze in der Nähe, alle ab Mitte März oder 1. April offen (Angaben aus den Vorjahren).</p>
+    <div class="alt" id="altcamps"></div>
+  </section>
+
+  <section class="view" id="view-weingueter" aria-labelledby="h-wein" hidden>
+    <h2 id="h-wein">Weingüter</h2>
+    <p class="lede">Die Probe am Tresen ist bei kleinen Winzern meist gratis, eine Flasche kaufen gehört zum guten Ton. Mittags zwischen 12 und 14 Uhr ist fast überall zu.</p>
+    <div id="wines"></div>
+    <p class="tip">Pro Person dürfen 5 Liter Wein abgabenfrei in die Schweiz.</p>
+  </section>
+
+  <section class="view" id="view-budget" aria-labelledby="h-budget" hidden>
+    <h2 id="h-budget">Budget für zwei</h2>
+    <p class="lede">Preise in Euro eingeben, die App rechnet das Total in Franken um. Ziel: CHF 300 für beide. Die Werte bleiben in diesem Browser gespeichert.</p>
+    <div class="card">
+      <div class="form" id="bform"></div>
+      <div class="total"><div><div style="font-size:14px;color:var(--muted)">Total für 2 Personen</div><div class="big" id="btotal"></div></div><span class="status" id="bstatus"></span></div>
+      <ul class="breakdown" id="bbreak"></ul>
+    </div>
+  </section>
+
+  <section class="view" id="view-checkliste" aria-labelledby="h-check" hidden>
+    <h2 id="h-check">Checkliste</h2>
+    <p class="lede">Abhaken, was erledigt oder eingepackt ist. Der Stand bleibt in diesem Browser gespeichert.</p>
+    <div id="checks"></div>
+    <button class="reset" id="creset" type="button">Alle Häkchen entfernen</button>
+  </section>
+</main>
+<footer class="wrap">Öffnungszeiten und Preise stammen aus 2026 und können sich bis April 2027 ändern.</footer>
+
+<script>
+var P={
+  colmar:{n:"Colmar",lat:48.0794,lon:7.3585,a:"r",dy:-2},
+  egu:{n:"Eguisheim",lat:48.0428,lon:7.3061,a:"r",dy:5},
+  burgen:{n:"Drei Burgen",lat:48.0303,lon:7.2803,a:"l",dy:10},
+  husseren:{n:"Husseren",lat:48.0378,lon:7.2850,a:"l",dy:0},
+  hohland:{n:"Hohlandsbourg",lat:48.0597,lon:7.2750,a:"l",dy:-6},
+  zellenberg:{n:"Zellenberg",lat:48.1689,lon:7.3214,a:"r",dy:7},
+  ribeau:{n:"Ribeauvillé",lat:48.1953,lon:7.3197,a:"r",dy:-4},
+  riquewihr:{n:"Riquewihr",lat:48.1667,lon:7.2978,a:"l",dy:4},
+  hkb:{n:"Hohkönigsburg",lat:48.2494,lon:7.3444,a:"r",dy:0},
+  mittelb:{n:"Mittelbergheim",lat:48.3972,lon:7.4436,a:"r",dy:8},
+  barr:{n:"Barr",lat:48.4140,lon:7.4527,a:"r",dy:-4},
+  odile:{n:"Mont Sainte-Odile",lat:48.4372,lon:7.4031,a:"l",dy:-2},
+  stras:{n:"Strassburg",lat:48.5818,lon:7.7509,a:"l",dy:4},
+  obernai:{n:"Obernai",lat:48.4622,lon:7.4819,a:"r",dy:0},
+  andlau:{n:"Andlau",lat:48.3878,lon:7.4167,a:"l",dy:6},
+  dambach:{n:"Dambach-la-Ville",lat:48.3239,lon:7.4253,a:"r",dy:0},
+  kintz:{n:"Kintzheim",lat:48.2553,lon:7.3961,a:"r",dy:2},
+  brisach:{n:"Neuf-Brisach",lat:48.0178,lon:7.5283,a:"r",dy:0},
+  south:{n:"Basel, Bern",lat:47.95,lon:7.44,edge:true}
+};
+var DAYS=[
+  {d:"Montag, 5. April",t:"Bern → Colmar → Eguisheim",km:"ca. 170 km",camp:"Les Trois Châteaux, Eguisheim",
+   x:"Über Basel ins Elsass. In Colmar zuerst Altstadt und Klein-Venedig, in der Markthalle das Picknick einkaufen. Am Nachmittag Zelt aufbauen, abends durch die runden Gassen von Eguisheim schlendern.",
+   tip:"Mit etwas mehr Zeit: statt über Basel durch den Jura fahren, via Delémont, Porrentruy und Belfort.",
+   s:["south","colmar","egu"]},
+  {d:"Dienstag, 6. April",t:"Wandertag auf dem Fünf-Burgen-Weg",km:"0 km, zu Fuss",camp:"Les Trois Châteaux, Eguisheim",
+   x:"Das Auto bleibt stehen. Vom Camping hinauf zu den drei Burgtürmen, weiter nach Husseren-les-Châteaux, dem höchsten Weindorf im Elsass, und zur Burg Hohlandsbourg. Am Abend Weinprobe in Eguisheim.",
+   tip:"Hohlandsbourg ist nach der Winterpause ab 3. April 2027 wieder offen.",
+   s:["egu","burgen","husseren","hohland","egu"],walk:true},
+  {d:"Mittwoch, 7. April",t:"Zellenberg → Ribeauvillé → Riquewihr",km:"ca. 40 km",camp:"Camping de Riquewihr",
+   x:"Picknick in Zellenberg mit Blick über die Reben. Am Nachmittag die Wanderung zu den drei Burgen über Ribeauvillé, 2,5 bis 3 Stunden. Danach Weinprobe in der Cave de Ribeauvillé, übernachtet wird in Riquewihr.",
+   s:["egu","zellenberg","ribeau","riquewihr"]},
+  {d:"Donnerstag, 8. April",t:"Riquewihr → Hohkönigsburg → Mittelbergheim → Mont Sainte-Odile",km:"ca. 75 km",camp:"Domaine Bachert, Barr",
+   x:"Früh durch Riquewihr, bevor die Busse kommen. Dann zur Hohkönigsburg, am besten zur Öffnung. Mittagspause und Weinprobe in Mittelbergheim, am Nachmittag hinauf zum Kloster auf dem Mont Sainte-Odile. Abends Zelt aufbauen beim Winzer in Barr.",
+   tip:"Hohkönigsburg: etwa 12 € pro Person, rund 1,5 Stunden einplanen.",
+   s:["riquewihr","hkb","mittelb","odile","barr"]},
+  {d:"Freitag, 9. April",t:"Obernai → Strassburg",km:"ca. 75 km",camp:"Domaine Bachert, Barr",
+   x:"Am Morgen eine Stunde durch Obernai: Marktplatz und Fachwerkhäuser. Dann weiter nach Strassburg, Auto auf einen Park+Ride am Stadtrand, mit dem Tram ins Zentrum. Münster, Petite France, die Dachterrasse des Barrage Vauban, Picknick am Wasser. Abends zurück in Barr und beim Zelt kochen.",
+   tip:"Für Strassburg braucht das Auto eine Crit’Air-Plakette.",
+   s:["barr","obernai","stras","barr"]},
+  {d:"Samstag, 10. April",t:"Andlau → Dambach-la-Ville → Neuf-Brisach → Bern",km:"ca. 250 km",camp:null,
+   x:"Langsam der Weinstrasse entlang nach Süden: Abteikirche in Andlau, Kapelle in den Reben über Dambach-la-Ville, wer mag Greifvögel oder Berberaffen in Kintzheim. Zum Schluss die sternförmige Festung Neuf-Brisach, ab dort rund 2 Stunden bis Bern.",
+   tip:"Volerie des Aigles und Montagne des Singes kosten je etwa 12 € pro Person.",
+   s:["barr","andlau","dambach","kintz","brisach","south"]}
+];
+var CAMPS=[
+  {n:"Les Trois Châteaux",w:"Montag und Dienstag",p:"ca. 15 € pro Nacht",a:"10 rue du Bassin, 68420 Eguisheim",tel:"+33389231939",telT:"+33 3 89 23 19 39",web:"https://www.camping-eguisheim.fr",
+   x:"Blick auf die drei Burgen, 300 m bis ins Dorf, Wanderung startet direkt vom Platz. Ältere Angaben nennen eine Öffnung erst ab 3. April, deshalb unbedingt bestätigen lassen."},
+  {n:"Camping de Riquewihr",w:"Mittwoch",p:"ca. 20–24 € pro Nacht",a:"1 route des Vins, 68340 Riquewihr",
+   x:"Flaches, ruhiges Familiengelände mitten im Weinbaugebiet, mit Vogesen auf der einen und Rheinebene auf der anderen Seite. Öffnungsdatum vorher prüfen."},
+  {n:"Domaine Bachert",w:"Donnerstag und Freitag",p:"ca. 12,50 € pro Nacht",a:"35a rue du Docteur Sultzer, 67140 Barr",tel:"+33388089589",telT:"+33 3 88 08 95 89",web:"https://www.bachert.fr",
+   x:"Zelten auf einem Bio-Weingut am Fuss der Reben. Einfach und etwas altmodisch, dafür ruhig und mit Weinprobe gleich vor Ort. Öffnung ab 1. April laut Angaben, für 2 Nächte anfragen."}
+];
+var ALT=[
+  {n:"Camping de l’Ill, Horbourg-Wihr",w:"Ersatz für Eguisheim, 10 Minuten entfernt",tel:"+33389411594",telT:"+33 3 89 41 15 94",web:"https://www.campingdelill.fr"},
+  {n:"Pierre de Coubertin, Ribeauvillé",w:"Ersatz für Riquewihr, ca. 21 €, ab Mitte März",tel:"+33389736671",telT:"+33 3 89 73 66 71",web:"https://camping.ribeauville.fr"},
+  {n:"Le Vallon de l’Ehn, Obernai",w:"Ersatz für Barr, ca. 22 €, ab Mitte März",tel:"+33388953848",telT:"+33 3 88 95 38 48"}
+];
+var WINES=[
+  {g:"Eguisheim",when:"Tag 1 und 2",items:[
+    {n:"Domaine Paul Ginglinger",a:"8 Place Charles de Gaulle",x:"Seit 1610 in Familienhand, biologisch. Kellerbesuch auf Anfrage."},
+    {n:"Joseph Gruss & Fils",a:"25 Grand Rue",x:"Familienbetrieb mit 18 ha auf rund fünfzig Parzellen, vor allem Kalkböden."},
+    {n:"Domaine Emile Beyer",a:"Place du Château Saint-Léon",x:"Geführte Probe mit Erklärungen, auch für Einsteiger angenehm. Kostet etwa 15–20 € pro Person."}]},
+  {g:"Ribeauvillé",when:"Tag 3",items:[
+    {n:"Cave de Ribeauvillé",a:"2 route de Colmar",tel:"+33389736180",telT:"+33 3 89 73 61 80",x:"Älteste Winzergenossenschaft Frankreichs, gegründet 1895, mit kleinem Weinmuseum und grosser Auswahl. Auch sonntags offen."},
+    {n:"Domaine Jean Sipp",x:"Kleiner Familienbetrieb, Probe für Einzelbesucher gratis, man spricht Deutsch."}]},
+  {g:"Mittelbergheim",when:"Tag 4",items:[
+    {n:"Domaine Armand Gilg",a:"2 rue Rotland",tel:"+33388089276",telT:"+33 3 88 08 92 76",x:"Bio, seit dem 16. Jahrhundert. Probe gratis. Montag bis Freitag 8–12 und 13.30–18 Uhr, Samstag 9–12 und 13.30–17 Uhr."},
+    {n:"Domaine Albert Seltz",x:"Seit 1576, bekannt für Sylvaner aus Mittelbergheim."},
+    {n:"Domaine Rietsch",a:"32 rue Principale",tel:"+33388080064",telT:"+33 3 88 08 00 64",x:"Familie in einem Haus von 1576, Probe und Verkauf auf dem Hof."}]},
+  {g:"Barr",when:"Tag 4 und 5",items:[
+    {n:"Domaine Bachert",a:"Am Campingplatz",x:"Probe gleich neben dem Zelt, Weine zu fairen Preisen."}]}
+];
+var CHECKS=[
+  {g:"Vor der Reise",items:[
+    ["crit","Crit’Air-Plakette auf certificat-air.gouv.fr bestellen, einige Wochen vorher"],
+    ["c1","Camping Eguisheim: Öffnung Anfang April bestätigen"],
+    ["c2","Camping Riquewihr: Öffnung bestätigen"],
+    ["c3","Domaine Bachert: 2 Nächte anfragen"],
+    ["vign","Autobahnvignette 2027 am Auto"],
+    ["cash","Euro in bar für kleine Winzer und Märkte"]]},
+  {g:"Packliste",items:[
+    ["zelt","Zelt und Heringe"],["sack","Warme Schlafsäcke, Nächte um 0 °C"],["matte","Isomatten"],
+    ["warm","Mütze und warme Schicht"],["regen","Regenjacke"],["schuh","Wanderschuhe"],
+    ["lampe","Stirnlampe"],["kocher","Gaskocher und Topf"],["thermo","Thermosflasche"],
+    ["messer","Taschenmesser und Korkenzieher"],["kuehl","Kühlbox"],["ausweis","Ausweis und Krankenkassenkarte"]]}
+];
+
+function store(k,v){try{if(v===undefined){var r=localStorage.getItem(k);return r?JSON.parse(r):null}localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+
+(function(){
+  var dep=new Date(2027,3,5),now=new Date();now.setHours(0,0,0,0);
+  var d=Math.round((dep-now)/864e5),el=document.getElementById("count");
+  if(d>1)el.textContent="Noch "+d+" Tage bis zur Abfahrt";
+  else if(d===1)el.textContent="Morgen geht’s los";
+  else if(d>-6)el.textContent="Gute Reise!";
+  else el.textContent="Reise im April 2027";
+})();
+
+document.getElementById("days").innerHTML=DAYS.map(function(D,i){
+  return '<article class="day"><div class="dnum" aria-hidden="true">'+(i+1)+'</div><div>'+
+  '<div class="ddate">'+D.d+'</div><h3 class="dtitle">'+esc(D.t)+'</h3><p class="dtext">'+D.x+'</p>'+
+  '<div class="meta"><span class="pill km">'+D.km+'</span>'+(D.camp?'<span class="pill">Nacht: '+D.camp+'</span>':'<span class="pill">Heimfahrt</span>')+'</div>'+
+  (D.tip?'<p class="tip">'+D.tip+'</p>':'')+
+  '<button class="linkbtn" type="button" data-day="'+i+'">Auf der Karte zeigen</button></div></article>';
+}).join("");
+document.getElementById("days").addEventListener("click",function(e){
+  var b=e.target.closest("[data-day]");if(!b)return;selDay=+b.dataset.day;drawMap();location.hash="karte";
+});
+
+var W=400,H=523,LON0=7.05,LON1=7.85,LAT0=47.95,LAT1=48.65;
+function px(lon){return (lon-LON0)/(LON1-LON0)*W}
+function py(lat){return (LAT1-lat)/(LAT1-LAT0)*H}
+function pt(id){var p=P[id];return [px(p.lon),py(p.lat)]}
+var NQ={hkb:"Château du Haut-Koenigsbourg",odile:"Mont Sainte-Odile, Ottrott",hohland:"Château du Hohlandsbourg",stras:"Strasbourg",south:"Bern, Schweiz"};
+function dest(id){return NQ[id]||(P[id].lat+","+P[id].lon)}
+function navG(q){return "https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(q)}
+function navA(q){return "https://maps.apple.com/?daddr="+encodeURIComponent(q)}
+function navLinks(q,name){return '<span class="navs"><a href="'+navG(q)+'" target="_blank" rel="noopener" aria-label="Google Maps zu '+name+'">Google Maps</a><a href="'+navA(q)+'" target="_blank" rel="noopener" aria-label="Apple Karten zu '+name+'">Apple Karten</a></span>'}
+var selDay=0;
+function drawMap(){
+  var vos=[[7.05,48.65],[7.36,48.65],[7.40,48.45],[7.37,48.30],[7.30,48.20],[7.27,48.10],[7.24,48.00],[7.22,47.95],[7.05,47.95]];
+  var rh=[[7.565,47.95],[7.575,48.10],[7.585,48.20],[7.66,48.35],[7.72,48.45],[7.80,48.58],[7.84,48.65]];
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Schematische Karte der Route im Elsass" style="display:block;width:100%;height:auto">';
+  s+='<polygon points="'+vos.map(function(c){return px(c[0]).toFixed(1)+","+py(c[1]).toFixed(1)}).join(" ")+'" fill="var(--vosges)"/>';
+  s+='<polyline points="'+rh.map(function(c){return px(c[0]).toFixed(1)+","+py(c[1]).toFixed(1)}).join(" ")+'" fill="none" stroke="var(--rhine)" stroke-width="3" stroke-linecap="round"/>';
+  s+='<text class="geo" x="14" y="110">Vogesen</text><text class="geo" x="300" y="300">Rhein</text>';
+  DAYS.forEach(function(D,i){
+    if(i===selDay)return;
+    s+='<polyline points="'+D.s.map(function(id){return pt(id).map(function(v){return v.toFixed(1)}).join(",")}).join(" ")+'" fill="none" stroke="var(--muted)" stroke-width="1.5" opacity=".35"'+(D.walk?' stroke-dasharray="3 4"':'')+'/>';
+  });
+  var D=DAYS[selDay];
+  s+='<polyline points="'+D.s.map(function(id){return pt(id).map(function(v){return v.toFixed(1)}).join(",")}).join(" ")+'" fill="none" stroke="var(--sand)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"'+(D.walk?' stroke-dasharray="5 5"':'')+'/>';
+  var all={};DAYS.forEach(function(x){x.s.forEach(function(id){all[id]=1})});
+  Object.keys(all).forEach(function(id){if(P[id].edge)return;var c=pt(id);s+='<circle cx="'+c[0].toFixed(1)+'" cy="'+c[1].toFixed(1)+'" r="2.5" fill="var(--muted)" opacity=".6"/>'});
+  var seen={};
+  D.s.forEach(function(id){
+    if(seen[id])return;seen[id]=1;var p=P[id],c=pt(id);
+    var href=navG(dest(id));
+    if(p.edge){s+='<a href="'+href+'" target="_blank" rel="noopener" aria-label="Navigation nach Bern"><text class="lbl halo" x="'+(c[0]+8)+'" y="'+(H-10)+'">↓ '+p.n+'</text></a>';return}
+    var l=p.a==="l";
+    s+='<a href="'+href+'" target="_blank" rel="noopener" aria-label="Navigation nach '+p.n+'">';
+    s+='<circle cx="'+c[0].toFixed(1)+'" cy="'+c[1].toFixed(1)+'" r="14" fill="transparent"/>';
+    s+='<circle class="dot" cx="'+c[0].toFixed(1)+'" cy="'+c[1].toFixed(1)+'" r="5" fill="var(--sand)" stroke="var(--card)" stroke-width="2"/>';
+    s+='<text class="lbl halo" x="'+(c[0]+(l?-9:9)).toFixed(1)+'" y="'+(c[1]+4+(p.dy||0)).toFixed(1)+'" text-anchor="'+(l?"end":"start")+'">'+p.n+'</text></a>';
+  });
+  s+='</svg>';
+  document.getElementById("map").innerHTML=s;
+  var list=[],sn={};D.s.forEach(function(id){if(!sn[id]){sn[id]=1;list.push(id)}});
+  var cp=D.camp?CAMPS.filter(function(c){return D.camp.indexOf(c.n)===0})[0]:null;
+  document.getElementById("stoplist").innerHTML=list.map(function(id){var n=P[id].edge?"Bern":P[id].n;return "<li><span>"+n+"</span>"+navLinks(dest(id),n)+"</li>"}).join("")+(D.camp?'<li><span>Nacht: '+D.camp+'</span>'+(cp?navLinks(cp.a,cp.n):'')+'</li>':'');
+  Array.prototype.forEach.call(document.querySelectorAll("#chips button"),function(b,i){b.setAttribute("aria-pressed",i===selDay?"true":"false")});
+}
+document.getElementById("chips").innerHTML=DAYS.map(function(D,i){return '<button type="button" aria-pressed="false" data-i="'+i+'">Tag '+(i+1)+'</button>'}).join("");
+document.getElementById("chips").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;selDay=+b.dataset.i;drawMap()});
+drawMap();
+
+function campCard(c,full){
+  var acts=[];
+  if(c.tel)acts.push('<a href="tel:'+c.tel+'">Anrufen '+c.telT+'</a>');
+  if(c.web)acts.push('<a href="'+c.web+'" target="_blank" rel="noopener">Website</a>');
+  if(c.a){acts.push('<a href="'+navG(c.a)+'" target="_blank" rel="noopener">Google Maps</a>');acts.push('<a href="'+navA(c.a)+'" target="_blank" rel="noopener">Apple Karten</a>');}
+  return '<div class="card"><h3>'+c.n+'</h3><div class="when">'+c.w+(c.p?', '+c.p:'')+'</div>'+
+    (c.a?'<div class="addr">'+c.a+'</div>':'')+(c.x?'<p>'+c.x+'</p>':'')+
+    (acts.length?'<div class="actions">'+acts.join("")+'</div>':'')+'</div>';
+}
+document.getElementById("camps").innerHTML=CAMPS.map(campCard).join("");
+document.getElementById("altcamps").innerHTML=ALT.map(campCard).join("");
+
+document.getElementById("wines").innerHTML=WINES.map(function(G){
+  return '<h3 class="group">'+G.g+'</h3><p class="groupnote">'+G.when+'</p>'+G.items.map(function(w){
+    var acts=[];if(w.tel)acts.push('<a href="tel:'+w.tel+'">Anrufen '+w.telT+'</a>');
+    return '<div class="wine"><h4>'+esc(w.n)+'</h4>'+(w.a?'<div class="addr">'+w.a+'</div>':'')+'<p>'+w.x+'</p>'+(acts.length?'<div class="actions">'+acts.join("")+'</div>':'')+'</div>';
+  }).join("");
+}).join("");
+
+var BF=[
+  {k:"km",l:"Strecke",h:"Kilometer total",v:600,step:10},
+  {k:"cons",l:"Verbrauch",h:"Liter pro 100 km",v:6.5,step:0.1},
+  {k:"fuel",l:"Benzinpreis",h:"€ pro Liter",v:1.85,step:0.01},
+  {k:"camp",l:"Camping",h:"5 Nächte, €",v:78,step:1},
+  {k:"food",l:"Essen",h:"€ pro Tag für beide, selbst gekocht",v:20,step:1},
+  {k:"wine",l:"Wein",h:"Proben und Flaschen, €",v:30,step:1},
+  {k:"misc",l:"Crit’Air, Park+Ride, Tram",h:"€",v:12,step:1},
+  {k:"rate",l:"Wechselkurs",h:"CHF für 1 €",v:0.94,step:0.01},
+  {k:"hkb",l:"Hohkönigsburg",h:"2 × ca. 12 €",v:true,box:true,amt:24},
+  {k:"zoo",l:"Kintzheim, Greifvögel oder Affen",h:"2 × ca. 12 €",v:false,box:true,amt:24}
+];
+var bsaved=store("budget2")||{};
+document.getElementById("bform").innerHTML=BF.map(function(f){
+  var val=(f.k in bsaved)?bsaved[f.k]:f.v;
+  return '<label for="b-'+f.k+'">'+f.l+'<span class="hint">'+f.h+'</span></label>'+
+    (f.box?'<input type="checkbox" id="b-'+f.k+'"'+(val?' checked':'')+'>':'<input type="number" inputmode="decimal" id="b-'+f.k+'" min="0" step="'+f.step+'" value="'+val+'">');
+}).join("");
+function eur(n){return n.toLocaleString("de-CH",{maximumFractionDigits:0})+" €"}
+function chf(n){return "CHF "+n.toLocaleString("de-CH",{maximumFractionDigits:0})}
+var LIMIT=300;
+function calc(){
+  var v={},save={};
+  BF.forEach(function(f){var el=document.getElementById("b-"+f.k);v[f.k]=f.box?el.checked:Math.max(0,parseFloat(el.value)||0);save[f.k]=v[f.k]});
+  store("budget2",save);
+  var r=v.rate>0?v.rate:0.94;
+  var fuel=v.km/100*v.cons*v.fuel,food=v.food*6;
+  var rows=[["Benzin",fuel],["Camping, 5 Nächte",v.camp],["Essen, 6 Tage selbst gekocht",food],["Wein",v.wine],["Crit’Air und Strassburg",v.misc]];
+  if(v.hkb)rows.push(["Hohkönigsburg",24]);if(v.zoo)rows.push(["Kintzheim",24]);
+  var t=rows.reduce(function(a,x){return a+x[1]},0),tc=t*r;
+  document.getElementById("btotal").textContent=chf(tc);
+  var st=document.getElementById("bstatus");
+  if(tc<=LIMIT){st.className="status ok";st.textContent="Im Budget, "+chf(LIMIT-tc)+" Luft"}
+  else{st.className="status over";st.textContent=chf(tc-LIMIT)+" über CHF "+LIMIT}
+  document.getElementById("bbreak").innerHTML=rows.map(function(x){return "<li><span>"+x[0]+"</span><span>"+chf(x[1]*r)+" ("+eur(x[1])+")</span></li>"}).join("")+"<li><span>Total in Euro</span><span>"+eur(t)+"</span></li><li><span>Pro Person</span><span>"+chf(tc/2)+"</span></li>";
+}
+document.getElementById("bform").addEventListener("input",calc);
+calc();
+
+var csaved=store("checks")||{};
+function drawChecks(){
+  var done=0,total=0;
+  document.getElementById("checks").innerHTML=CHECKS.map(function(G){
+    return '<h3 class="group">'+G.g+'</h3><ul class="check">'+G.items.map(function(it){
+      total++;if(csaved[it[0]])done++;
+      return '<li><label><input type="checkbox" data-k="'+it[0]+'"'+(csaved[it[0]]?' checked':'')+'><span>'+it[1]+'</span></label></li>';
+    }).join("")+'</ul>';
+  }).join("");
+  var pr=document.createElement("p");pr.className="progress";pr.id="cprog";pr.textContent=done+" von "+total+" erledigt";
+  document.getElementById("checks").prepend(pr);
+}
+drawChecks();
+document.getElementById("checks").addEventListener("change",function(e){
+  var k=e.target.dataset.k;if(!k)return;csaved[k]=e.target.checked;store("checks",csaved);
+  var n=Object.keys(csaved).filter(function(x){return csaved[x]}).length,t=document.querySelectorAll("#checks input").length;
+  document.getElementById("cprog").textContent=n+" von "+t+" erledigt";
+});
+document.getElementById("creset").addEventListener("click",function(){csaved={};store("checks",csaved);drawChecks()});
+
+var VIEWS=["tage","karte","camping","weingueter","budget","checkliste"];
+function route(){
+  var h=location.hash.replace("#","");if(VIEWS.indexOf(h)<0)h="tage";
+  VIEWS.forEach(function(v){document.getElementById("view-"+v).hidden=(v!==h)});
+  Array.prototype.forEach.call(document.querySelectorAll("nav a"),function(a){
+    if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");
+  });
+  if(location.hash)window.scrollTo(0,0);
+}
+window.addEventListener("hashchange",route);route();
+</script>
+</body>
+</html>
